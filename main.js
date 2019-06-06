@@ -14,6 +14,9 @@ var venditori =[]
 var venditore
 var vendite = 0;
 var vendite_per_venditore=[]
+var mesi =[]
+var vendite_mensili =0;
+var vendite_per_mese=[]
 
 $.ajax({
   'url': 'http://157.230.17.132:4008/sales',
@@ -22,13 +25,12 @@ $.ajax({
     console.log(data);
     for (var k = 0; k < data.length; k++) {
       if (!venditori.includes(data[k].salesman)) {
-        venditori.push(data[k].salesman)
+        venditori.push(data[k].salesman);
       }
     }
     console.log(venditori);
 
     for (var i = 0; i < venditori.length; i++) {
-      venditori[i];
       for (var j = 0; j < data.length; j++) {
         if( venditori[i] == data[j].salesman){
           vendite += data[j].amount;
@@ -36,8 +38,32 @@ $.ajax({
         }
       }
       vendite_per_venditore.push(vendite);
+      vendite = 0;
     }
     console.log(vendite_per_venditore);
+
+    for (var i = 0; i < data.length; i++) {
+      var moment_data = moment(data[i].date, "DD/MM/YYYY");
+      var mese = moment_data.format('MMMM');
+      if (!mesi.includes(mese)) {
+        mesi.push(mese);
+      }
+    }
+    console.log(mesi);
+
+    for (var i = 0; i <mesi.length; i++) {
+      for (var j = 0; j < data.length; j++) {
+        var moment_data1 = moment(data[j].date, "DD/MM/YYYY");
+        var mese1 = moment_data1.format('MMMM');
+        if(mesi[i] == mese1){
+          vendite_mensili += data[j].amount;
+          console.log(vendite_mensili);
+        }
+      }
+      vendite_per_mese.push(vendite_mensili);
+      vendite_mensili = 0;
+    }
+    console.log(vendite_per_mese);
   },
   'error':function(){
     alert('GET : si è verificato un errore');
