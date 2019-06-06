@@ -25,16 +25,25 @@ var vendite_mensili =0;
 // array con length pari a 12 mesi con le vendite mensili
 var vendite_per_mese=[];
 
-
-$.ajax({
-  'url': 'http://157.230.17.132:4008/sales',
-  'method':'POST',
-  'success': function(data){
-    console.log(data);
-  },
-  'error':function(){
-    alert('GET : si è verificato un errore');
-  }
+$('.aggiungi_vendita').click( function(){
+  var input_venditore = $('.venditore').val();
+  var input_mese = $('.mese').val();
+  var input_importo = $('.importo').val();
+  $.ajax({
+    'url': 'http://157.230.17.132:4008/sales',
+    'method':'POST',
+    'data' : {
+      'salesman' : input_venditore,
+      'amount' : input_importo,
+      'date' : input_mese
+    },
+    'success': function(data){
+      console.log(data);
+    },
+    'error':function(){
+      alert('POST : si è verificato un errore');
+    }
+  });
 });
 
 $.ajax({
@@ -124,10 +133,21 @@ var myChart = new Chart(primo_grafico , {
         datasets: [{
             label: 'venditori',
             data: vendite_per_venditore,
-            backgroundColor: ['red', 'blue', 'yellow', 'green']
+            backgroundColor: ['yellow','green','blue','pink']
         }]
     },
 
     // Configuration options go here
     options: {}
 });
+
+var colors=[]
+
+function numero_colori(valore, lunghezza){
+  parseInt()
+  var colors_palette = ['yellow','green','blue','pink', 'grey', 'red']
+  for (var i = 0; i < lunghezza; i++) {
+    colors.push(colors[i])
+    return colors
+  }
+}
