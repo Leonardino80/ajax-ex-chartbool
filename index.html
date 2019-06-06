@@ -5,13 +5,38 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://momentjs.com/downloads/moment.min.js" charset="utf-8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <title>ajax-ex-cartbool</title>
   </head>
   <body>
     <div class="container">
-      <canvas id="graph1" width="300" height="300"></canvas>
+      <canvas id="myChart" width="400" height="400"></canvas>
     </div>
+    <select class="venditore">
+      <option>Seleziona un venditore</option>
+      <option value="Marco">Marco</option>
+      <option value="Giuseppe">Giuseppe</option>
+      <option value="Riccardo">Marco</option>
+      <option value="Roberto">Roberto</option>
+    </select>
+    <select class="mese">
+      <option>Seleziona un mese</option>
+      <option value="January">Gennaio</option>
+      <option value="February">Febbraio</option>
+      <option value="March">Marzo</option>
+      <option value="April">Aprile</option>
+      <option value="May">Maggio</option>
+      <option value="June">Giugno</option>
+      <option value="July">Luglio</option>
+      <option value="August">Agosto</option>
+      <option value="September">Settembre</option>
+      <option value="October">Ottobre</option>
+      <option value="November">Novembre</option>
+      <option value="December">Dicembre</option>
+    </select>
+    <input type="number" class="importo">
+    <button class="aggiungi_vendita">Aggiungi vendita</button>
+
 
     <script src="main.js" charset="utf-8"></script>
   </body>

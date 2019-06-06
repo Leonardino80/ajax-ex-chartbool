@@ -10,13 +10,32 @@
 // fatturato_totale)
 // marco 27200 giuseppe 26010 riccardo 33000 roberto 32730
 
-var venditori =[]
-var venditore
+// array venditori da popolare con un ciclo
+var venditori =[];
+// variabile contenitore per ottenere le vendite di ciascun venditore
+// a zero solo come promemoria
 var vendite = 0;
-var vendite_per_venditore=[]
-var mesi =[]
+// array con length pari al numero de venditori con le loro vendite
+var vendite_per_venditore=[];
+// array mesi da popolare con un ciclo
+var mesi =[];
+// variabile contenitore per ottenere le vendite di ciascun mese
+// a zero solo come promemoria
 var vendite_mensili =0;
-var vendite_per_mese=[]
+// array con length pari a 12 mesi con le vendite mensili
+var vendite_per_mese=[];
+
+
+$.ajax({
+  'url': 'http://157.230.17.132:4008/sales',
+  'method':'POST',
+  'success': function(data){
+    console.log(data);
+  },
+  'error':function(){
+    alert('GET : si è verificato un errore');
+  }
+});
 
 $.ajax({
   'url': 'http://157.230.17.132:4008/sales',
@@ -94,8 +113,8 @@ $.ajax({
   }
 });
 
-var ctx = $('#graph1');
-var chart = new Chart(ctx, {
+var primo_grafico = $('#myChart');
+var myChart = new Chart(primo_grafico , {
     // The type of chart we want to create
     type: 'pie',
 
@@ -103,10 +122,9 @@ var chart = new Chart(ctx, {
     data: {
         labels: venditori,
         datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: vendite_per_venditore
+            label: 'venditori',
+            data: vendite_per_venditore,
+            backgroundColor: ['red', 'blue', 'yellow', 'green']
         }]
     },
 
