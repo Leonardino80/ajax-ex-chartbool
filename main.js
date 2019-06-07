@@ -34,7 +34,7 @@ $('.aggiungi_vendita').click( function(){
     'method':'POST',
     'data' : {
       'salesman' : input_venditore,
-      'amount' : input_importo,
+      'amount' : parseInt(input_importo),
       'date' : input_mese
     },
     'success': function(data){
@@ -71,7 +71,7 @@ $.ajax({
         // in esame dal primo ciclo dentro il secondo ciclo
         // aggiungo la relativa proprietà AMOUNT di vendita alla variabile VENDITE
         if( venditori[i] == data[j].salesman){
-          vendite += data[j].amount;
+          vendite += parseInt(data[j].amount);
           // console.log(vendite);
         }
       }
@@ -108,7 +108,7 @@ $.ajax({
         // aggiungo la relativa proprietà AMOUNT di vendita
         // alla variabile VENDITE_MENSILI
         if(mesi[i] == mese1){
-          vendite_mensili += data[j].amount;
+          vendite_mensili += parseInt(data[j].amount);
           // console.log(vendite_mensili);
         }
       }
