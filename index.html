@@ -10,36 +10,31 @@
   </head>
   <body>
     <div class="container">
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <section>
+        <canvas id="myChart1" width="400" height="400"></canvas>
+      </section>
+      <section>
+        <canvas id="myChart2" width="400" height="400"></canvas>
+      </section>
     </div>
-    <select class="venditore">
-      <option>Seleziona un venditore</option>
-      <option value="Marco">Marco</option>
-      <option value="Giuseppe">Giuseppe</option>
-      <option value="Riccardo">Marco</option>
-      <option value="Roberto">Roberto</option>
-      <option value="Leonardo">Leonardo</option>
-      <option value="Lahee">Lahee</option>
-    </select>
-    <select class="mese">
-      <option>Seleziona un mese</option>
-      <option value="01/01/2017">Gennaio</option>
-      <option value="01/02/2017">Febbraio</option>
-      <option value="01/03/2017">Marzo</option>
-      <option value="01/04/2017">Aprile</option>
-      <option value="01/05/2017">Maggio</option>
-      <option value="01/06/2017">Giugno</option>
-      <option value="01/07/2017">Luglio</option>
-      <option value="01/08/2017">Agosto</option>
-      <option value="01/09/2017">Settembre</option>
-      <option value="01/10/2017">Ottobre</option>
-      <option value="01/11/2017r">Novembre</option>
-      <option value="01/12/2017">Dicembre</option>
-    </select>
-    <input type="number" class="importo">
-    <button class="aggiungi_vendita">Aggiungi vendita</button>
+    <div class="container">
+      <select class="venditore" name="">
+        <option val=""> seleziona  un venditore </option>
+        <option value="Marco"> Marco </option>
+        <option value="Giuseppe"> Giuseppe </option>
+        <option value="Riccardo"> Riccardo </option>
+        <option value="Roberto"> Roberto </option>
+      </select>
 
+      <select class="day" name="">
+      </select>
+      <select class="month" name="">
+      </select>
+      <h3 class="validity"></h3>
 
+      <input type="number" class="importo">
+      <button class="aggiungi_vendita">Aggiungi vendita</button>
+    </div>
     <script src="main.js" charset="utf-8"></script>
   </body>
 </html>
